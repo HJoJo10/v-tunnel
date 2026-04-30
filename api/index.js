@@ -4,7 +4,7 @@ export const config = {
 
 export default async function handler(req) {
   const url = new URL(req.url);
-  const targetUrl = 'http://Faz.jojeyenaz.ir:2095' + url.pathname + url.search;
+  const targetUrl = 'https://Faz.jojeyenaz.ir:2095' + url.pathname + url.search;
 
   return fetch(targetUrl, {
     method: req.method,
