@@ -10,7 +10,7 @@ module.exports = (req, res) => {
       ...req.headers,
       host: 'Faz.jojeyenaz.ir'
     },
-    rejectUnauthorized: false // برای جلوگیری از ارور SSL
+    rejectUnauthorized: false
   };
 
   const proxyReq = https.request(options, (proxyRes) => {
@@ -21,6 +21,7 @@ module.exports = (req, res) => {
   req.pipe(proxyReq);
 
   proxyReq.on('error', (e) => {
-    res.status(500).send(e.message);
+    res.statusCode = 500;
+    res.end(e.message);
   });
 };
