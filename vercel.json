@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "rewrites": [
+  "functions": {
+    "index.js": {
+      "runtime": "vercel-edge@0.1.0"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.js"
+      "src": "/(.)",
+      "dest": "index.js"
     }
   ]
 }
